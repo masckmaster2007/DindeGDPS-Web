@@ -341,5 +341,5 @@ app.use(function (err, req, res, next) {
 process.on('uncaughtException', (e) => { console.log(e) });
 process.on('unhandledRejection', (e, p) => { console.log(e) });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 2000;
 app.listen(PORT, () => console.log(`Site online! (port ${app.config.port})`))
