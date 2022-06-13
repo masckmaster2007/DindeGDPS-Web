@@ -69,9 +69,9 @@ app.use(timeout('20s'));
 app.use(async function(req, res, next) {
 
   let subdomains = req.subdomains.map(x => x.toLowerCase())
-  //if (!subdomains.length) subdomains = [""]
+  if (!subdomains.length) subdomains = ["http://dgdps.herokuapp.com"]
   req.server = app.servers.find(x => subdomains.includes(x.id.toLowerCase()))
- if (subdomains.length > 1 || !req.server) return res.redirect("http://" + req.get('host').split(".").slice(subdomains.length).join("."))
+ if (subdomains.length > 1 || !req.server) return res.redirect("http://" + req.get('host').split(".").slice(subdomains.length).join(".") + req.originalUrl)
   // will expand this in the future :wink:
  res.sendError = function(errorCode=500) {
   res.status(errorCode).send("-1")
