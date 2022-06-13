@@ -65,7 +65,6 @@ app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(timeout('20s'));
-app.use(async function(req, res, next)))
         
   // literally just for convenience
   req.offline = req.server.offline
