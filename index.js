@@ -65,18 +65,8 @@ app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(timeout('20s'));
-
-app.use(async function(req, res, next) {
-
-  let subdomains = req.subdomains.map(x => x.toLowerCase())
-  if (!subdomains.length) subdomains = [""]
-  req.server = app.servers.find(x => subdomains.includes(x.id.toLowerCase()))
- if (subdomains.length > 1 || !req.server) return res.redirect("http://" + "dgdps.herokuapp.com".split(".").join(".") + req.originalUrl)
-  // will expand this in the future :wink:
- res.sendError = function(errorCode=500) {
-  res.status(errorCode).send("-1")
- }
-
+app.use(async function(req, res, next)))
+        
   // literally just for convenience
   req.offline = req.server.offline
   req.endpoint = req.server.endpoint
