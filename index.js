@@ -74,9 +74,9 @@ app.use(async function(req, res, next) {
   //if (subdomains.length > 1 || !req.server) return res.redirect("http://" + "dgdps.herokuapp.com" + req.originalUrl)
   // if (subdomains.length > 1 || !req.server) return res.redirect("http://" + req.get('host').split(".").join(".") + req.originalUrl)
   // will expand this in the future :wink:
-  res.sendError = function(errorCode=500) {
-    res.status(errorCode).send("-1")
-  }
+ // res.sendError = function(errorCode=500) {
+  //  res.status(errorCode).send("-1")
+ // }
 
   // literally just for convenience
   req.offline = req.server.offline
